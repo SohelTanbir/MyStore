@@ -1,0 +1,19 @@
+.product-heading{
+    text-align: center;
+    padding:3rem 0;
+}
+.product-heading h2{
+    position: relative;
+    text-transform: uppercase;
+    font-weight:600;
+    margin-bottom:1rem;
+}
+.product-heading h2::before{
+    content: "";
+    position: absolute;
+    left:50%;
+    top:50%;
+    width:10rem;
+    height:.1rem;
+    background:red;
+}

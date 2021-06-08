@@ -1,0 +1,12 @@
+.card{
+    padding:6rem 0 3rem;
+}
+.card h3{
+    font-weight:500;
+}
+.card p{
+    font-weight:300;
+}
+.service-text{
+    margin-left: 1.5rem;
+}
