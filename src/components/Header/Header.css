@@ -6,9 +6,14 @@
 }
 .logo{
     flex-basis:15%;
+    text-transform: uppercase;
+    font-weight:700;
+}
+.logo span{
+    color:red;
 }
 .navbar{
-    flex-basis:60%;
+    flex-basis:75%;
 }
 .navbar ul{
     text-align: right;

@@ -24,14 +24,11 @@
     width:40%;
     position: relative;
 }
-.latestInput input, button{
+.latestInput input, .latestInput button{
     border: none;
     outline:none;
     padding:1.6rem 3rem;
     border-radius:3rem;
-}
-.latestInput input::placeholder{
-    font-family: 'Poppins', sans-serif;
 }
 .latestInput input{
     width: 100%;

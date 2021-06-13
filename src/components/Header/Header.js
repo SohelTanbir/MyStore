@@ -22,7 +22,7 @@ const Header = () => {
             <div className="container">
                 <div className="row">
                     <div className="logo">
-                       <a href="/home">MyStore</a>
+                       <a href="/home">My<span>Store</span> </a>
                     </div>
                     <div className="navbar">
                         <ul>
@@ -33,13 +33,13 @@ const Header = () => {
                                 <Link to="/product">Product</Link>
                             </li>
                             <li>
-                                <Link to="/product">Collection</Link>
-                            </li>
-                            <li>
                                 <Link to="/blog">Blog</Link>
                             </li>
                             <li>
                                 <Link to="/admin">admin</Link>
+                            </li>
+                            <li>
+                                <Link to="/about">About Us</Link>
                             </li>
                         </ul>
                         <div id="mobileMenu">
