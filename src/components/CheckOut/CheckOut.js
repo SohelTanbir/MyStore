@@ -3,6 +3,8 @@ import './CheckOut.css';
 import { useParams } from 'react-router';
 import FakeData from '../../FakeData/FakeData';
 
+
+
 const CheckOut = () => {
     const { id } = useParams();
     const { name, price, img } = FakeData.find(pd => pd.id == id);
