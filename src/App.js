@@ -11,16 +11,20 @@ import Blog from './components/Blog/Blog';
 import Login from './components/Login/Login';
 import Admin from './components/Admin/Admin';
 import SignUp from './components/SignUp/SignUp';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import CheckOut from './components/CheckOut/CheckOut';
+import Header from './components/Header/Header';
 
 export const userContext = createContext();
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({});
-  console.log(loggedInUser)
+  const [cart, setCart] = useState({});
   return (
     <div className="App">
-      <userContext.Provider value={[loggedInUser, setLoggedInUser]}>
+      <userContext.Provider value={[loggedInUser, setLoggedInUser], [cart, setCart]}>
      <Router>
+       <Header/>
           <Switch>
             <Route exact path="/">
                 <Home/>
@@ -40,9 +44,12 @@ function App() {
             <Route path="/signup">
                 <SignUp/>
             </Route>
-            <Route path="/admin">
+            <PrivateRoute path="/admin">
                 <Admin/>
-            </Route>
+            </PrivateRoute>
+            <PrivateRoute path="/checkout:id">
+              <CheckOut/>
+            </PrivateRoute>
           </Switch>
      </Router>
      </userContext.Provider>

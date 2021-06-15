@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom'
 import './Header.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faCartPlus } from '@fortawesome/free-solid-svg-icons'
+import { userContext } from '../../App';
 
 const Header = () => {
-    const [toggle, setToggle] = useState(false)
+    const [toggle, setToggle] = useState(false);
+    const [cart, setCart] = useContext(userContext)
     const handleMenu = ()=>{
         if(toggle === false){
            document.querySelector('.navbar ul').style.visibility ='visible';
@@ -48,7 +50,7 @@ const Header = () => {
                             </a>
                      </div>
                     </div>
-                    <div className="addToCart">
+                    <div className="addToCart" data={cart}>
                         <a href="#">
                         <FontAwesomeIcon icon={faCartPlus} />
                         </a>

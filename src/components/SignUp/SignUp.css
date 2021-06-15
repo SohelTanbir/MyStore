@@ -32,7 +32,7 @@
     border-radius:.5rem;
     position:relative;
 }
-.SignUpBox .loginBtn{
+.SignUpBox .signupBtn{
     width:100%;
     border:none;
     outline:none;
@@ -43,7 +43,7 @@
     font-weight:700;
     font-size:1.6rem;
 }
-.SignUpBox .loginBtn:hover{
+.SignUpBox .signupBtn:hover{
     background:#9a3ee6;
     box-shadow:1rem 1rem 2rem #cccccc;
 }
@@ -76,4 +76,14 @@
 }
 .loginOption a:hover{
     text-decoration: underline;
+}
+.actionDisplay{
+    width:24%;
+    position: absolute;
+    text-align: center;
+    margin-top:2%;
+    left:38%;
+    background:#ebebeb;
+    padding:1rem;
+    border-radius:.5rem;
 }

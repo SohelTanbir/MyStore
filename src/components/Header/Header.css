@@ -31,7 +31,7 @@
     position:relative;
 }
 .addToCart a::after{
-    content: "10";
+    content:counter(data);
     position: absolute;
     top:0;
     right:-70%;
