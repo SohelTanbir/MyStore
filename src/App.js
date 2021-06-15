@@ -44,12 +44,12 @@ function App() {
             <Route path="/signup">
                 <SignUp/>
             </Route>
-            <PrivateRoute path="/admin">
+            <Route path="/dashboard">
                 <Admin/>
-            </PrivateRoute>
-            <PrivateRoute path="/checkout:id">
+            </Route>
+            <Route path="/checkout:id">
               <CheckOut/>
-            </PrivateRoute>
+            </Route>
           </Switch>
      </Router>
      </userContext.Provider>

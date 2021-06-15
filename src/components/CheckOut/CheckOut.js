@@ -7,7 +7,7 @@ const CheckOut = () => {
     const { id } = useParams();
     const { name, price, img } = FakeData.find(pd => pd.id == id);
     const [productQuantity, setProductQuantity] = useState(1);
-
+    const [placeOrder, setPlaceOrder ] = useState(false)
     // handle product quantity
     const quantityIncrease = ()=>  setProductQuantity(productQuantity+1);
     const quantityDecrease = ()=>{
@@ -15,11 +15,17 @@ const CheckOut = () => {
             setProductQuantity(productQuantity-1)
         }
     }
+// handle checkout
+const handleCheckOut = () =>{
+    setPlaceOrder(true);
+}
+
     return (
         <div className="checkout">
             <h3>Product Details</h3>
             <div className="container">
-                <div className="row">
+                <div className="checkoutInfo">
+                    {placeOrder?'':
                     <div className="product-info">
                         <table>
                             <tr>
@@ -36,7 +42,8 @@ const CheckOut = () => {
                                 <th>{name}</th>
                                 <th>
                                     <div className="product-quantity">
-                                        <button onClick={quantityDecrease}>-</button>
+                                       {productQuantity <=1? <button style={{color:'#dfdfdf',cursor:'default'}} onClick={quantityDecrease}>-</button>:
+                                        <button onClick={quantityDecrease}>-</button>}
                                         <input type="text" value={productQuantity}/>
                                         <button onClick={quantityIncrease}>+</button>
                                     </div>
@@ -45,15 +52,17 @@ const CheckOut = () => {
                                 <th>${price*productQuantity}</th>
                             </tr>
                         </table>
-                    </div>
+                    </div>}
+                   {placeOrder?<div>
+                       <h3>Your addresse</h3>
+                   </div>:
                     <div className="cart-count">
-                            <h3>Total items: 5</h3>
                             <p>product: {name}</p>
                             <p>Quantity: {productQuantity}</p>
                             <p>Shipping: $5</p>
                             <p>Total Price: ${(price*productQuantity)+5}</p>
-                            <button>Proceed to CheckOut</button>
-                    </div>
+                            <button onClick={handleCheckOut}>Proceed to CheckOut</button>
+                    </div>}
                 </div>
             </div>
         </div>

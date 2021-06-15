@@ -22,12 +22,31 @@ const blogData = [
         title:'Lorem ipsum dolor sit amet consec.',
         img:blog3
     },
+    {
+        id:3,
+        title:'Lorem ipsum dolor sit amet consec.',
+        img:blog3
+    },
+    {
+        id:3,
+        title:'Lorem ipsum dolor sit amet consec.',
+        img:blog3
+    },
+    {
+        id:3,
+        title:'Lorem ipsum dolor sit amet consec.',
+        img:blog3
+    },
 ]
 
 const Blog = () => {
     return (
         <div className="blog">
             <div className="container">
+            <div className="product-heading">
+               <h2>Latest Blogs</h2>
+               <p style={{marginBottom:'2rem'}}>You can read our popular blogs from here</p>
+           </div>
                 <div className="row">
                     {
                         blogData.map(blog => <BlogCard blog={blog}/>)

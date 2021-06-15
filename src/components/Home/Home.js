@@ -5,6 +5,7 @@ import Footer from '../Footer/Footer';
 import LatestNews from '../LatestNews/LatestNews';
 import Product from '../Product/Product';
 import Service from '../Service/Service';
+import StripePayment from '../StripePayment/StripePayment';
 
 
 const Home = ()=> {
@@ -16,6 +17,7 @@ const Home = ()=> {
            <LatestNews/>
            <Blog/>
            <Footer/>
+           <StripePayment/>
         </div>
     )
 }
