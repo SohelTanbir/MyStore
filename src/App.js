@@ -20,9 +20,10 @@ export const userContext = createContext();
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({});
   const [cart, setCart] = useState({});
+  const [payment, setPayment]= useState({})
   return (
     <div className="App">
-      <userContext.Provider value={[loggedInUser, setLoggedInUser], [cart, setCart]}>
+      <userContext.Provider value={[loggedInUser, setLoggedInUser], [cart, setCart],[payment, setPayment]}>
      <Router>
        <Header/>
           <Switch>

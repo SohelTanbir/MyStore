@@ -27,7 +27,7 @@ const Login = () => {
       .signInWithPopup(googleProvider)
       .then((result) => {
         const user = result.user;
-        const loggedUser = { name: user.displayName, email: user.email, photo: user.photoURL }
+        const loggedUser = { name: user.displayName, email:user.email, photo: user.photoURL }
         setLoggedInUser(loggedUser);
         history.replace(from);
       }).catch((error) => {

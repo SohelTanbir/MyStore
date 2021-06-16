@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './CheckOut.css';
 import { useParams } from 'react-router';
 import FakeData from '../../FakeData/FakeData';
+import StripePayment from '../StripePayment/StripePayment';
+import { userContext } from '../../App';
+
 
 
 
@@ -9,7 +12,10 @@ const CheckOut = () => {
     const { id } = useParams();
     const { name, price, img } = FakeData.find(pd => pd.id == id);
     const [productQuantity, setProductQuantity] = useState(1);
-    const [placeOrder, setPlaceOrder ] = useState(false)
+    const [placeOrder, setPlaceOrder ] = useState(false);
+    const [loggedInUser, setLoggedInUser] = useContext(userContext);
+    const [payment, setPayment] = useContext(userContext);
+    const [shipmentInfo, setShipmentInfo] =  useState({})
     // handle product quantity
     const quantityIncrease = ()=>  setProductQuantity(productQuantity+1);
     const quantityDecrease = ()=>{
@@ -22,12 +28,26 @@ const handleCheckOut = () =>{
     setPlaceOrder(true);
 }
 
+// order shipment info
+const shipmentInput = (e)=>{
+    const shipInut = {...shipmentInfo, product:{name:name, price:price, img:img}};
+    shipInut[e.target.name] = e.target.value;
+    setShipmentInfo(shipInut)
+}
+// handle order shipment 
+const handleOrderShipment = (e)=>{
+    e.preventDefault();
+    alert("order place successfully")
+}
+
+console.log(shipmentInfo)
+
     return (
         <div className="checkout">
-            <h3>Product Details</h3>
+            {placeOrder?<h3 style={{marginLeft:'15%'}}>Pay bill with card</h3>:<h3>Product Details</h3>}
             <div className="container">
                 <div className="checkoutInfo">
-                    {placeOrder?'':
+                    {placeOrder?<StripePayment/>:
                     <div className="product-info">
                         <table>
                             <tr>
@@ -55,10 +75,19 @@ const handleCheckOut = () =>{
                             </tr>
                         </table>
                     </div>}
-                   {placeOrder?<div>
-                       <h3>Your addresse</h3>
-                   </div>:
-                    <div className="cart-count">
+                   {payment.id?<div className="shiping-form">
+                       <h3>Shipping addresse</h3>
+                       <div className="shipingForm">
+                          <form onSubmit={handleOrderShipment}>
+                          <input type="text" name="name" onBlur={shipmentInput} value={loggedInUser.name} placeholder="your name"/> <br />
+                           <input type="email" name="email"  onBlur={shipmentInput} placeholder="your email"/><br />
+                           <input type="text" name="location" onBlur={shipmentInput} placeholder="Present Location"/><br />
+                           <input type="tell" name="phone" onBlur={shipmentInput} placeholder="Mobile number"/><br />
+                           <button>Place Order</button>
+                          </form>
+                       </div>
+                   </div>:''}
+                   {placeOrder?'':<div className="cart-count">
                             <p>product: {name}</p>
                             <p>Quantity: {productQuantity}</p>
                             <p>Shipping: $5</p>
