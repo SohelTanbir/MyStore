@@ -41,7 +41,7 @@ const blogData = [
 
 const Blog = () => {
     return (
-        <div className="blog">
+        <div className="blog" id="blog">
             <div className="container">
             <div className="product-heading">
                <h2>Latest Blogs</h2>

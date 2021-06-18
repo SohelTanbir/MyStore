@@ -19,6 +19,7 @@ const Header = () => {
            setToggle(false)
         }
     }
+
     return (
        <div className="header">
             <div className="container">
@@ -32,16 +33,16 @@ const Header = () => {
                                 <Link to="/">Home</Link>
                             </li>
                             <li>
-                                <Link to="/product">Product</Link>
+                                <a href="#product">Product</a>
                             </li>
                             <li>
-                                <Link to="/blog">Blog</Link>
+                                <a href="#blog">Blog</a>
                             </li>
                             <li>
                                 <Link to="/dashboard">Dashboard</Link>
                             </li>
                             <li>
-                                <Link to="/about">About Us</Link>
+                                <a href="#about">About Us</a>
                             </li>
                         </ul>
                         <div id="mobileMenu">
